@@ -36,11 +36,14 @@ git clone https://github.com/yo41sawada/openapi-maven-sample.git
 - クローンしたディレクトリの Open
 - settings.json への maven 実行パスの追加
   ```
-  "maven.executable.path": "{your Maven directory}/bin/mvn",
+  "maven.executable.path": "/{your Maven directory}/bin/mvn"
   ```
 
-## Open API 定義の準備や修正
-あああ
+## Open API 定義の準備と openapi-generator-maven-plugin を用いたソースコードの自動生成
+```
+cd "/{your working directory}/openapi-maven-sample"
+mvn clean compile
+```
 
 # ビルド・コンパイル・実行
 あああ
