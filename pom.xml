@@ -7,12 +7,12 @@
 		<version>2.5.13</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>spring-boot</artifactId>
+	<groupId>jp.yo41sawada</groupId>
+	<artifactId>sample-openapi-maven</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot</name>
-	<description>Demo project for Spring Boot</description>
+	<name>sample-openapi-maven</name>
 	<properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
