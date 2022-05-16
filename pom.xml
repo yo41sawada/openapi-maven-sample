@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<packaging>pom</packaging>
+	<modules>
+		<module>backend</module>
+		<module>openapitools</module>
+	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -55,12 +60,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<inherited>false</inherited>
 			</plugin>
 
 			<plugin>
 				<groupId>org.openapitools</groupId>
 				<artifactId>openapi-generator-maven-plugin</artifactId>
 				<version>5.4.0</version>
+				<inherited>false</inherited>
 				<executions>
 					<execution>
 						<goals>
@@ -68,10 +75,12 @@
 						</goals>
 						<configuration>
 							<inputSpec>${project.basedir}/openapi.yaml</inputSpec>
+							<output>${project.basedir}/openapitools</output>
 							<generatorName>spring</generatorName>
 							<configOptions>
 								<sourceFolder>src/main/java</sourceFolder>
 							</configOptions>
+
 						</configuration>
 					</execution>
 				</executions>
