@@ -4,6 +4,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>openapitools</module>
+		<module>backend</module>
 	</modules>
 	<groupId>jp.yo41sawada</groupId>
 	<artifactId>sample-openapi-maven</artifactId>
