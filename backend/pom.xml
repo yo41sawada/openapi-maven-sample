@@ -97,7 +97,7 @@
 					</execution>
 				</executions>
 				<configuration>
-					<mainClass>jp.yo41sawada.backend.Application</mainClass>
+					<mainClass>jp.yo41sawada.backend.BackendApplication</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
