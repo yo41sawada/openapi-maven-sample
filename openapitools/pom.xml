@@ -14,7 +14,6 @@
 		<java.version>11</java.version>
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
-		<springdoc.version>1.6.4</springdoc.version>
 	</properties>
 
 	<!-- https://spring.pleiades.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/#using.import -->
