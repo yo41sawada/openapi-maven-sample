@@ -7,7 +7,7 @@ import org.springframework.web.context.request.NativeWebRequest;
 import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-05-17T12:37:56.857134+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-05-17T15:36:20.474350+09:00[Asia/Tokyo]")
 @Controller
 @RequestMapping("${openapi.openAPIGenerator.base-path:}")
 public class UsersApiController implements UsersApi {
