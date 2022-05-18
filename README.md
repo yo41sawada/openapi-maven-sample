@@ -1,10 +1,9 @@
 # ABOUT THIS REPOSITORY
 openapi-generator-maven-plugin を用いて Spring アプリケーションの開発を Java で行うサンプルリポジトリです。このリポジトリを用いることで、以下を理解することが出来ます。
-- Open API 定義を用いた Spring for Java コードの自動生成
-- openapi-generator-maven-plugin の基本的な用法
-- hoge
-- piyo
-- fuga
+- Open API 定義のサンプル
+- openapi-generator-maven-plugin を用いた Spring for Java コードの自動生成とディレクトリの変更
+- 複数の pom.xml を用いた親子プロジェクトの実現
+- 自動生成したソースコードを用いた簡易な Spring API アプリケーションの作成
 
 # 環境・前提条件
 ## 開発端末
@@ -34,10 +33,6 @@ git clone https://github.com/yo41sawada/openapi-maven-sample.git
 ```
 ## Visual Studio Code
 - クローンしたディレクトリの Open
-- settings.json への maven 実行パスの追加
-  ```
-  "maven.executable.path": "/{your Maven directory}/bin/mvn"
-  ```
 
 ## Open API 定義の準備と openapi-generator-maven-plugin を用いたソースコードの自動生成
 ```
