@@ -34,11 +34,15 @@ git clone https://github.com/yo41sawada/openapi-maven-sample.git
 ## Visual Studio Code
 - クローンしたディレクトリの Open
 
-## Open API 定義の準備と openapi-generator-maven-plugin を用いたソースコードの自動生成
-```
-cd "/{your working directory}/openapi-maven-sample"
-mvn clean compile
-```
+# チュートリアル
+## Open API 定義の確認
 
-# ビルド・コンパイル・実行
-あああ
+## Open API 定義を用いたソースコードの自動生成
+
+## Spring API アプリケーションの作成・実行
+
+
+# シチュエーション
+## Open API 定義の修正とソースコードの自動生成
+
+## Spring API アプリケーションのコンパイルから実行
