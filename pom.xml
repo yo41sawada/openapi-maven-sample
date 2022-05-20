@@ -33,6 +33,7 @@
 							<generatorName>spring</generatorName>
 							<configOptions>
 								<sourceFolder>src/main/java</sourceFolder>
+								<delegatePattren>true</delegatePattren>
 							</configOptions>
 						</configuration>
 					</execution>
