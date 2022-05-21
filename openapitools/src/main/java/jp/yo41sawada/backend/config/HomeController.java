@@ -1,4 +1,4 @@
-package org.openapitools.configuration;
+package jp.yo41sawada.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
@@ -27,7 +27,7 @@ public class HomeController {
 
     @Bean
     public String openapiContent() throws IOException {
-        try(InputStream is = openapi.getInputStream()) {
+        try (InputStream is = openapi.getInputStream()) {
             return StreamUtils.copyToString(is, Charset.defaultCharset());
         }
     }

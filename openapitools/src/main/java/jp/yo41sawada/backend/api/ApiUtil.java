@@ -1,4 +1,4 @@
-package org.openapitools.api;
+package jp.yo41sawada.backend.api;
 
 import org.springframework.web.context.request.NativeWebRequest;
 

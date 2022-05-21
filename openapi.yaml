@@ -13,7 +13,7 @@ paths:
   /users:
     get:
       summary: Your GET endpoint
-      tags: []
+      tags: [ users ]
       responses:
         '200':
           description: OK
@@ -25,6 +25,26 @@ paths:
                   $ref: '#/components/schemas/User'
       operationId: get-users
       description: ユーザーの一覧を返す。
+  /user/{id}:
+    parameters:
+      - in: "path"
+        name: "id"
+        required: true
+        schema:
+          type: "integer"
+          format: "int32"
+    get:
+      summary: Your GET endpoint
+      tags: [ users ]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+      operationId: get-user
+      description: ユーザーを返す。
 components:
   schemas:
     User:
