@@ -3,9 +3,9 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-package org.openapitools.api;
+package jp.yo41sawada.backend.api;
 
-import org.openapitools.model.User;
+import jp.yo41sawada.backend.model.User;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -14,28 +14,24 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import javax.annotation.Generated;
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-05-17T19:56:57.922539+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-05-22T15:41:51.088985+09:00[Asia/Tokyo]")
 @Validated
 @Tag(name = "users", description = "the users API")
 public interface UsersApi {
 
-    default Optional<NativeWebRequest> getRequest() {
-        return Optional.empty();
+    default UsersApiDelegate getDelegate() {
+        return new UsersApiDelegate() {};
     }
 
     /**
@@ -59,17 +55,7 @@ public interface UsersApi {
     default ResponseEntity<List<User>> getUsers(
         
     ) {
-        getRequest().ifPresent(request -> {
-            for (MediaType mediaType: MediaType.parseMediaTypes(request.getHeader("Accept"))) {
-                if (mediaType.isCompatibleWith(MediaType.valueOf("application/json"))) {
-                    String exampleString = "{ \"last_name\" : \"last_name\", \"id\" : 0, \"first_name\" : \"first_name\" }";
-                    ApiUtil.setExampleResponse(request, "application/json", exampleString);
-                    break;
-                }
-            }
-        });
-        return new ResponseEntity<>(HttpStatus.NOT_IMPLEMENTED);
-
+        return getDelegate().getUsers();
     }
 
 }

@@ -31,8 +31,13 @@
 							<inputSpec>${project.basedir}/openapi.yaml</inputSpec>
 							<output>${project.basedir}/openapitools</output>
 							<generatorName>spring</generatorName>
+							<invokerPackage>jp.yo41sawada.backend</invokerPackage>
+							<apiPackage>jp.yo41sawada.backend.api</apiPackage>
+							<modelPackage>jp.yo41sawada.backend.model</modelPackage>
 							<configOptions>
 								<sourceFolder>src/main/java</sourceFolder>
+								<configPackage>jp.yo41sawada.backend.config</configPackage>
+								<delegatePattern>true</delegatePattern>
 							</configOptions>
 						</configuration>
 					</execution>

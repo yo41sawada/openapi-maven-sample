@@ -1,4 +1,4 @@
-package org.openapitools;
+package jp.yo41sawada.backend;
 
 import com.fasterxml.jackson.databind.util.StdDateFormat;
 

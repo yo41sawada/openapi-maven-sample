@@ -1,4 +1,4 @@
-package org.openapitools;
+package jp.yo41sawada.backend;
 
 import com.fasterxml.jackson.databind.Module;
 import org.openapitools.jackson.nullable.JsonNullableModule;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"org.openapitools", "org.openapitools.api" , "org.openapitools.configuration"})
+@ComponentScan(basePackages = {"jp.yo41sawada.backend", "jp.yo41sawada.backend.api" , "jp.yo41sawada.backend.config"})
 public class OpenAPI2SpringBoot implements CommandLineRunner {
 
     @Override

@@ -1,4 +1,4 @@
-package org.openapitools.model;
+package jp.yo41sawada.backend.model;
 
 import java.net.URI;
 import java.util.Objects;
@@ -18,7 +18,7 @@ import javax.annotation.Generated;
  * User
  */
 
-@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-05-17T19:56:57.922539+09:00[Asia/Tokyo]")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-05-22T15:41:51.088985+09:00[Asia/Tokyo]")
 public class User   {
 
   @JsonProperty("id")

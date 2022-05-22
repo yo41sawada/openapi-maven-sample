@@ -1,4 +1,4 @@
-package org.openapitools.configuration;
+package jp.yo41sawada.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
