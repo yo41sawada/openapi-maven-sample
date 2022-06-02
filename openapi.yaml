@@ -25,6 +25,20 @@ paths:
                   $ref: '#/components/schemas/User'
       operationId: get-users
       description: ユーザーの一覧を返す。
+  /user:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+            example:
+              id: 362
+              first_name: Richard
+              last_name: Roe
+      responses:
+        "200":
+          description: ok
 components:
   schemas:
     User:
