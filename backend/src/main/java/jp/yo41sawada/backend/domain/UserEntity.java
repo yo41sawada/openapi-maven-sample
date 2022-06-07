@@ -1,10 +1,9 @@
 package jp.yo41sawada.backend.domain;
 
 import jp.yo41sawada.backend.model.User;
+import jp.yo41sawada.backend.presentation.UserCsv;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
-
-import com.opencsv.bean.CsvBindByName;
 
 import java.util.Objects;
 
@@ -15,13 +14,10 @@ import java.util.Objects;
 public class UserEntity {
 
     @Id
-    @CsvBindByName(column = "id")
     private Integer id;
 
-    @CsvBindByName(column = "first_name")
     private String firstName;
 
-    @CsvBindByName(column = "last_name")
     private String lastName;
 
     public UserEntity(Integer id, String firstName, String lastName) {
@@ -33,6 +29,11 @@ public class UserEntity {
     public static UserEntity from(User user) {
         return new UserEntity(user.getId(), user.getFirstName(), user.getLastName());
     }
+
+    public static UserEntity from(UserCsv user) {
+        return new UserEntity(user.getId(), user.getFirstName(), user.getLastName());
+    }
+
 
     public User toModel() {
         return new User().id(this.id).lastName(this.lastName).firstName(this.firstName);

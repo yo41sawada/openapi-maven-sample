@@ -15,7 +15,6 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.RFC4180Parser;
 import com.opencsv.RFC4180ParserBuilder;
-import com.opencsv.bean.ColumnPositionMappingStrategy;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 
@@ -50,14 +49,14 @@ public class UsersApiDelegateImpl implements UsersApiDelegate {
         final CSVReader csvReader = new CSVReaderBuilder(lnr)
                 .withCSVParser(rfc4180Parser)
                 .build();
-        CsvToBean<UserEntity> csvToBean = new CsvToBeanBuilder<UserEntity>(csvReader)
-                .withType(UserEntity.class)
+        CsvToBean<UserCsv> csvToBean = new CsvToBeanBuilder<UserCsv>(csvReader)
+                .withType(UserCsv.class)
                 .withIgnoreLeadingWhiteSpace(true)
                 .build();
-        List<UserEntity> users = csvToBean.parse();
+        List<UserCsv> users = csvToBean.parse();
         for (var user : users) {
             System.out.println(user.toString());
-            // userRepository.save(MemberEntity.from(member));
+             userRepository.save(UserEntity.from(user));
         }
         // users.stream().forEach(u -> userRepository.save(UserEntity.from(u)));
         return new ResponseEntity<>(HttpStatus.CREATED);
