@@ -25,6 +25,22 @@ paths:
                   $ref: '#/components/schemas/User'
       operationId: get-users
       description: ユーザーの一覧を返す。
+  /users/csv-import:
+    post:
+      summary: Your POST endpoint
+      tags: [csvImport]
+      operationId: post-csv
+      responses:
+        '200':
+          description: OK
+      description: メンバー群を作成する。
+      parameters: []
+      requestBody:
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+
   /user:
     post:
       requestBody:

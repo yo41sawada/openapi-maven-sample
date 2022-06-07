@@ -4,6 +4,8 @@ import jp.yo41sawada.backend.model.User;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import com.opencsv.bean.CsvBindByName;
+
 import java.util.Objects;
 
 /**
@@ -13,11 +15,14 @@ import java.util.Objects;
 public class UserEntity {
 
     @Id
-    private final Integer id;
+    @CsvBindByName(column = "id")
+    private Integer id;
 
-    private final String firstName;
+    @CsvBindByName(column = "first_name")
+    private String firstName;
 
-    private final String lastName;
+    @CsvBindByName(column = "last_name")
+    private String lastName;
 
     public UserEntity(Integer id, String firstName, String lastName) {
         this.id = id;
@@ -35,13 +40,17 @@ public class UserEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         UserEntity that = (UserEntity) o;
 
-        if (!Objects.equals(id, that.id)) return false;
-        if (!Objects.equals(firstName, that.firstName)) return false;
+        if (!Objects.equals(id, that.id))
+            return false;
+        if (!Objects.equals(firstName, that.firstName))
+            return false;
         return Objects.equals(lastName, that.lastName);
     }
 
@@ -53,4 +62,3 @@ public class UserEntity {
         return result;
     }
 }
-
