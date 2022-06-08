@@ -45,6 +45,7 @@ public class UsersApiDelegateImpl implements UsersApiDelegate {
 
         final RFC4180Parser rfc4180Parser = new RFC4180ParserBuilder()
                 .withSeparator(',')
+                .withQuoteChar('"')
                 .build();
         final CSVReader csvReader = new CSVReaderBuilder(lnr)
                 .withCSVParser(rfc4180Parser)
@@ -54,11 +55,7 @@ public class UsersApiDelegateImpl implements UsersApiDelegate {
                 .withIgnoreLeadingWhiteSpace(true)
                 .build();
         List<UserCsv> users = csvToBean.parse();
-        for (var user : users) {
-            System.out.println(user.toString());
-             userRepository.save(UserEntity.from(user));
-        }
-        // users.stream().forEach(u -> userRepository.save(UserEntity.from(u)));
+        users.stream().forEach(u -> userRepository.save(UserEntity.from(u)));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
