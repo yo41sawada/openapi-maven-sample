@@ -1,6 +1,7 @@
 package jp.yo41sawada.backend.domain;
 
 import jp.yo41sawada.backend.model.User;
+import jp.yo41sawada.backend.presentation.UserCsv;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
@@ -13,11 +14,11 @@ import java.util.Objects;
 public class UserEntity {
 
     @Id
-    private final Integer id;
+    private Integer id;
 
-    private final String firstName;
+    private String firstName;
 
-    private final String lastName;
+    private String lastName;
 
     public UserEntity(Integer id, String firstName, String lastName) {
         this.id = id;
@@ -29,19 +30,28 @@ public class UserEntity {
         return new UserEntity(user.getId(), user.getFirstName(), user.getLastName());
     }
 
+    public static UserEntity from(UserCsv user) {
+        return new UserEntity(user.getId(), user.getFirstName(), user.getLastName());
+    }
+
+
     public User toModel() {
         return new User().id(this.id).lastName(this.lastName).firstName(this.firstName);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
 
         UserEntity that = (UserEntity) o;
 
-        if (!Objects.equals(id, that.id)) return false;
-        if (!Objects.equals(firstName, that.firstName)) return false;
+        if (!Objects.equals(id, that.id))
+            return false;
+        if (!Objects.equals(firstName, that.firstName))
+            return false;
         return Objects.equals(lastName, that.lastName);
     }
 
@@ -53,4 +63,3 @@ public class UserEntity {
         return result;
     }
 }
-
