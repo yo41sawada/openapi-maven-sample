@@ -20,7 +20,7 @@ public class UserEntity {
 
     private String lastName;
 
-    private User.StatusEnum status; 
+    private User.StatusEnum status;
 
     public UserEntity(Integer id, String firstName, String lastName, User.StatusEnum status) {
         this.id = id;
@@ -39,7 +39,7 @@ public class UserEntity {
 
 
     public User toModel() {
-        return new User().id(this.id).lastName(this.lastName).firstName(this.firstName);
+        return new User().id(this.id).lastName(this.lastName).firstName(this.firstName).status(this.status);
     }
 
     @Override
