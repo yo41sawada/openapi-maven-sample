@@ -12,11 +12,6 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import com.opencsv.CSVReader;
-import com.opencsv.CSVReaderBuilder;
-import com.opencsv.RFC4180Parser;
-import com.opencsv.RFC4180ParserBuilder;
-import com.opencsv.bean.CsvToBean;
-import com.opencsv.bean.CsvToBeanBuilder;
 
 import java.io.LineNumberReader;
 import java.io.StringReader;
@@ -40,22 +35,15 @@ public class UsersApiDelegateImpl implements UsersApiDelegate {
     }
 
     @Override
-    public ResponseEntity<Void> postCsv(String body) {
-        final LineNumberReader lnr = new LineNumberReader(new StringReader(body));
-
-        final RFC4180Parser rfc4180Parser = new RFC4180ParserBuilder()
-                .withSeparator(',')
-                .withQuoteChar('"')
-                .build();
-        final CSVReader csvReader = new CSVReaderBuilder(lnr)
-                .withCSVParser(rfc4180Parser)
-                .build();
-        CsvToBean<UserCsv> csvToBean = new CsvToBeanBuilder<UserCsv>(csvReader)
-                .withType(UserCsv.class)
-                .withIgnoreLeadingWhiteSpace(true)
-                .build();
-        List<UserCsv> users = csvToBean.parse();
+    public ResponseEntity<Void> createUsersWithCsv(String body) {
+        List<UserCsv> users = getUserCsvList(body);
         users.stream().forEach(u -> userRepository.save(UserEntity.from(u)));
         return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
+    private List<UserCsv> getUserCsvList(String body) {
+        CsvHandler csvHandler = new CsvHandler();
+        CSVReader csvReader = csvHandler.getCSVReader(new LineNumberReader(new StringReader(body)));
+        return csvHandler.getCsvUsers(csvReader);
     }
 }
