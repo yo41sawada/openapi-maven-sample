@@ -20,18 +20,21 @@ public class UserEntity {
 
     private String lastName;
 
-    public UserEntity(Integer id, String firstName, String lastName) {
+    private User.StatusEnum status; 
+
+    public UserEntity(Integer id, String firstName, String lastName, User.StatusEnum status) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.status = status;
     }
 
     public static UserEntity from(User user) {
-        return new UserEntity(user.getId(), user.getFirstName(), user.getLastName());
+        return new UserEntity(user.getId(), user.getFirstName(), user.getLastName(), user.getStatus());
     }
 
     public static UserEntity from(UserCsv user) {
-        return new UserEntity(user.getId(), user.getFirstName(), user.getLastName());
+        return new UserEntity(user.getId(), user.getFirstName(), user.getLastName(), user.getStatus());
     }
 
 
@@ -52,7 +55,9 @@ public class UserEntity {
             return false;
         if (!Objects.equals(firstName, that.firstName))
             return false;
-        return Objects.equals(lastName, that.lastName);
+        if (!Objects.equals(lastName, that.lastName))
+            return false;
+        return Objects.equals(status, that.status);
     }
 
     @Override

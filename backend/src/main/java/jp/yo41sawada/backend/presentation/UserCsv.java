@@ -2,6 +2,8 @@ package jp.yo41sawada.backend.presentation;
 
 import com.opencsv.bean.CsvBindByName;
 
+import jp.yo41sawada.backend.model.User;
+
 public class UserCsv {
 
     @CsvBindByName(column = "id")
@@ -12,6 +14,8 @@ public class UserCsv {
 
     @CsvBindByName(column = "last_name")
     private String lastName;
+
+    private User.StatusEnum status;
 
     public Integer getId() {
         return id;
@@ -35,5 +39,13 @@ public class UserCsv {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public User.StatusEnum getStatus() {
+        return status;
+    }
+
+    public void setStatus(User.StatusEnum status) {
+        this.status = status;
     }
 }
