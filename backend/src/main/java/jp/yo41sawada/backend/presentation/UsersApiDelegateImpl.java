@@ -35,7 +35,7 @@ public class UsersApiDelegateImpl implements UsersApiDelegate {
     }
 
     @Override
-    public ResponseEntity<Void> createUsersWithCsv(String body) {
+    public ResponseEntity<Void> postCsv(String body) {
         List<UserCsv> users = getUserCsvList(body);
         users.stream().forEach(u -> userRepository.save(UserEntity.from(u)));
         return new ResponseEntity<>(HttpStatus.CREATED);
