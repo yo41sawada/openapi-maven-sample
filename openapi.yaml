@@ -28,7 +28,7 @@ paths:
   /users/csv-import:
     post:
       summary: Your POST endpoint
-      tags: [csvImport]
+      tags: []
       operationId: post-csv
       responses:
         '200':
