@@ -21,7 +21,7 @@ public class UserApiDelegateImpl implements UserApiDelegate {
     }
 
     @Override
-    public ResponseEntity<Void> userPost(User user) {
+    public ResponseEntity<Void> postUser(User user) {
 
         System.out.println("userPost has called.");
         userRepository.save(UserEntity.from(user));
