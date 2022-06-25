@@ -2,18 +2,18 @@ package jp.yo41sawada.backend.domain;
 
 import jp.yo41sawada.backend.model.User;
 import jp.yo41sawada.backend.presentation.UserCsv;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
+// import org.springframework.data.annotation.Id;
+// import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.Objects;
 
 /**
  * UserEntity
  */
-@Table(name = "user")
+// @Table(name = "user")
 public class UserEntity {
 
-    @Id
+    // @Id
     private Integer id;
 
     private String firstName;
@@ -33,7 +33,6 @@ public class UserEntity {
     public static UserEntity from(UserCsv user) {
         return new UserEntity(user.getId(), user.getFirstName(), user.getLastName());
     }
-
 
     public User toModel() {
         return new User().id(this.id).lastName(this.lastName).firstName(this.firstName);

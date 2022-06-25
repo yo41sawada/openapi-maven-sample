@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BackendApplication {
 
 	public static void main(String[] args) {
-		System.setProperty("logging.level.root", "DEBUG");
+		// System.setProperty("logging.level.root", "DEBUG");
 		SpringApplication.run(BackendApplication.class, args);
 	}
 

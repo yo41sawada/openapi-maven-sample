@@ -2,7 +2,7 @@ package jp.yo41sawada.backend.presentation;
 
 import jp.yo41sawada.backend.api.UsersApiDelegate;
 import jp.yo41sawada.backend.domain.UserEntity;
-import jp.yo41sawada.backend.domain.UserRepository;
+// import jp.yo41sawada.backend.domain.UserRepository;
 import jp.yo41sawada.backend.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,29 +15,31 @@ import com.opencsv.CSVReader;
 
 import java.io.LineNumberReader;
 import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
 public class UsersApiDelegateImpl implements UsersApiDelegate {
-    @NonNull
-    private final UserRepository userRepository;
+    // @NonNull
+    // private final UserRepository userRepository;
 
-    @Autowired
-    public UsersApiDelegateImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    // @Autowired
+    // public UsersApiDelegateImpl(UserRepository userRepository) {
+    // this.userRepository = userRepository;
+    // }
 
     @Override
     public ResponseEntity<List<User>> getUsers() {
-        List<UserEntity> users = (List<UserEntity>) userRepository.findAll();
+        // List<UserEntity> users = (List<UserEntity>) userRepository.findAll();
+        List<UserEntity> users = new ArrayList<>();
         return ResponseEntity.ok().body(users.stream().map(UserEntity::toModel).collect(Collectors.toList()));
     }
 
     @Override
     public ResponseEntity<Void> postCsv(String body) {
-        List<UserCsv> users = getUserCsvList(body);
-        users.stream().forEach(u -> userRepository.save(UserEntity.from(u)));
+        // List<UserCsv> users = getUserCsvList(body);
+        // users.stream().forEach(u -> userRepository.save(UserEntity.from(u)));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
