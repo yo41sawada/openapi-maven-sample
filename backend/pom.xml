@@ -103,6 +103,7 @@
 							<apiPackage>jp.yo41sawada.backend.api</apiPackage>
 							<modelPackage>jp.yo41sawada.backend.model</modelPackage>
 							<configPackage>jp.yo41sawada.backend.config</configPackage>
+							<skipIfSpecIsUnchanged>true</skipIfSpecIsUnchanged>
 							<configOptions>
 								<delegatePattern>true</delegatePattern>
 								<sourceFolder>src/main/java</sourceFolder>
